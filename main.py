@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from pygraph.classes.graph import graph
 import util
 
 app = Flask(__name__)
@@ -11,4 +10,9 @@ def home():
 if __name__ == "__main__":
     app.run()
 
-def 
+def makeAdjacencyMatrix(): 
+  codeList = util.getCurrencyCodes()
+  currAdjMatrix = {code: {code: None for code in codeList} for code in codeList}
+  print currAdjMatrix
+
+makeAdjacencyMatrix()
