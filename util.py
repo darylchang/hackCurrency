@@ -17,4 +17,12 @@ def writeFile():
 def getCurrencyCodes():
 	lines = [line.strip('\n').split(',') for line in open('currencyList.csv', 'r').readlines()]
 	lines = [line[3] for line in lines]
-	print lines[1:]
+	return lines[1:]
+
+def makeAdjacencyMatrix(): 
+  codeList = getCurrencyCodes()
+  currAdjMatrix = {code: {code: None for code in codeList} for code in codeList}
+
+  print currAdjMatrix
+
+makeAdjacencyMatrix()
