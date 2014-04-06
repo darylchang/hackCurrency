@@ -1,5 +1,0 @@
-pygraph/classes
-pygraph/readwrite
-pygraph
-pygraph/mixins
-pygraph/algorithms
