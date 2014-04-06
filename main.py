@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-	return render_template('index.html')
+	results = util.findCycles() #[("USD", 1.1)]
+	return render_template('index.html', results=results)
 
 if __name__ == "__main__":
     app.run()

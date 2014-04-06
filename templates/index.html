@@ -1,9 +1,21 @@
 <html>
 <head>
-<title>Currency Hack</title>
+<title>Currency Arbitrage</title>
 </head>
 
 <body>
-	Hello world
+	<h1>Currency Cycles</h1>
+	<table border='1px'>
+		<tr>
+			<td>Cycle</td>
+			<td>Return</td>
+		</tr>
+		{% for item in results %}
+			<tr>
+				<td>{{item[0]}}</td>
+				<td>{{item[1]}}</td>
+			</tr>
+		{% endfor %}
+	</table>
 </body>
 </html>

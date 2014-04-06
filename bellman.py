@@ -32,14 +32,25 @@ def bellman_ford(graph, source):
         for u in graph:
             for v in graph[u]: #For each neighbour of u
                 relax(u, v, graph, d, p) #Lets relax it
+        print i
 
     # Step 3: check for negative-weight cycles
+    paths = []
     for u in graph:
         for v in graph[u]:
-            assert d[v] <= d[u] + graph[u][v]
-
-    return d, p
-
+            if d[v] > d[u] + graph[u][v]:
+                path = [v]
+                node = u
+                while True:
+                    path.insert(0, node)
+                    if path.count(node) > 1 or node==source:
+                        end = len(path) - 1 - path[::-1].index(node)
+                        path = path[:end + 1]
+                        break
+                    node = p[node]
+                if path not in paths:
+                    paths.append(path)
+    return paths
 
 def test():
     graph = {
